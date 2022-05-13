@@ -109,32 +109,44 @@ function onConnReqDeleteComplete(response, status) {
 function validateConnectionRequestForm() {
 	// NIC Number
 	if ($("#nicNo").val().trim() == "") {
-		return "Insert NIC Number";
+		return "Insert NIC number";
 	}
 	// First Name
 	if ($("#firstName").val().trim() == "") {
-		return "Insert First Name";
+		return "Insert first name";
 	}
 	// Last Name
 	if ($("#lastName").val().trim() == "") {
-		return "Insert Last Name";
+		return "Insert last name";
 	}
 	// Address
 	if ($("#address").val().trim() == "") {
-		return "Insert Address";
+		return "Insert address";
 	}
 	
 	// Telephone Number
 	if ($("#tpNo").val().trim() == "") {
-		return "Insert Telephone Number";
+		return "Insert telephone number";
 	}
-	// is numerical value
-	//var tmpCharge = $("#amount").val().trim();
-	//if (!$.isNumeric(tmpCharge)) {
-	//	return "Insert a numerical value for Amount.";
-	//}
-
+	//is numerical value
+	var tmpCharge = $("#tpNo").val().trim();
+	if (!$.isNumeric(tmpCharge)) {
+		return "Insert a valid phone number";
+	}
 	
+	//valid phone number
+	var txtLength = $("#tpNo").val().length;
+    if (txtLength != 10) {
+        return "Insert a valid phone number";
+    }
+    
+    //valid NIC number
+	var txtLength = $("#nicNo").val().length;
+    if (txtLength != 10) {
+        return "Insert a valid NIC number";
+    }	
+    
+    
 	
 	return true;
 
